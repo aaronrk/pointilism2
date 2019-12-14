@@ -1,3 +1,5 @@
+package com.kruglikov.pointilism.main;
+
 import com.kruglikov.pointilism.index.Indexer;
 import com.kruglikov.pointilism.index.LuminanceIndexer;
 

@@ -1,3 +1,4 @@
+package com.kruglikov.pointilism.main;
 
 import com.kruglikov.pointilism.index.ImageIndex;
 import com.kruglikov.pointilism.index.Indexer;
@@ -13,8 +14,8 @@ import java.util.Arrays;
 public class alternateMain {
 
     public static void main(String[] args) {
-        System.out.println(calculateImageAverage("/Users/aaronkruglikov/Desktop/dog.jpg"));
-        System.out.println(calculateImageAverage("/Users/aaronkruglikov/Desktop/redsquare.jpg"));
+//        System.out.println(calculateImageAverage("/Users/aaronkruglikov/Desktop/dog.jpg"));
+//        System.out.println(calculateImageAverage("/Users/aaronkruglikov/Desktop/redsquare.jpg"));
     }
 
     private static float calculateImageAverage(String pathToImage) {

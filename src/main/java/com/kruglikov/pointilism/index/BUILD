@@ -1,0 +1,11 @@
+java_library(
+    name = "index",
+    srcs = glob(["*.java"]),
+    visibility = [
+        "//src/main/java/com/kruglikov/pointilism/main:__pkg__",
+        "//src/main/java/com/kruglikov/pointilism/store:__pkg__",
+    ],
+    deps = [
+        "//src/main/java/com/kruglikov/pointilism/utils",
+    ],
+)
