@@ -1,6 +1,6 @@
 package com.kruglikov.pointilism.index;
 
-public interface ImageIndex {
+public interface ImageIndex extends Comparable<ImageIndex>{
 
     enum IndexType {
         RGB,

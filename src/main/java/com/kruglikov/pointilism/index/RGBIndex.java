@@ -44,4 +44,9 @@ public class RGBIndex implements ImageIndex {
     public IndexType type() {
         return IndexType.RGB;
     }
+
+    @Override
+    public int compareTo(ImageIndex imageIndex) {
+
+    }
 }
