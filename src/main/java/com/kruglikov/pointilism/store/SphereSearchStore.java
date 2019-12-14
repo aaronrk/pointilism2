@@ -51,7 +51,6 @@ public class SphereSearchStore implements Store {
 
     @Override
     public IndexedImage returnMostSimilar(ImageIndex otherIndex) {
-        System.out.printf("rindex contains %s elements\n", rIndex.size());
         float[] indexElems = otherIndex.IndexComponents();
         float rLow = indexElems[0];
         float rHigh = indexElems[0];
@@ -111,7 +110,7 @@ public class SphereSearchStore implements Store {
             gHigh = min(255, gHigh + 1);
             bLow = max(0, bLow - 1);
             bHigh = min(255, bHigh + 1);
-            System.out.printf("rlow:%s , rhigh:%s , glow:%s , ghigh:%s , blow:%s, bhigh: %s\n", rLow, rHigh, gLow, gHigh, bLow, bHigh);
+//            System.out.printf("rlow:%s , rhigh:%s , glow:%s , ghigh:%s , blow:%s, bhigh: %s\n", rLow, rHigh, gLow, gHigh, bLow, bHigh);
 
         }
         System.out.printf("Found no matchable elements\n");

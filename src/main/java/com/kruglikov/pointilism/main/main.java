@@ -11,10 +11,12 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class main {
     public static void main(String[] args) {
         Store store = new SphereSearchStore();
+        Indexer indexer = new AverageIndexer();
         BufferedImage img = null;
         File dir = new File("/Users/aaronkruglikov/Desktop/testingPicsPointilism");
         File[] directoryListing = dir.listFiles();
@@ -25,7 +27,7 @@ public class main {
                     if (img != null) {
                         store.storeImage(img);
                     } else {
-                        System.out.println("Null image");
+                        System.out.printf("Null image found: %s\n", child.getAbsoluteFile());
                     }
                 } catch (IOException e) {
                     System.out.printf("Failed for %s", child.getName());
@@ -36,15 +38,18 @@ public class main {
 
         }
         ImageIndex testIndex;
-        Indexer indexer = new AverageIndexer();
         try {
-            img = ImageIO.read(new File("/Users/aaronkruglikov/Desktop/forestTestImage.jpg"));
+            img = ImageIO.read(new File("/Users/aaronkruglikov/Desktop/turts.jpg"));
             testIndex = indexer.Index(img);
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException("Could not find searchable file");
         }
+        long startTime = System.nanoTime();
         IndexedImage mostSimilar = store.returnMostSimilar(testIndex);
-        System.out.println(mostSimilar.getIndex().Compare(testIndex));
+        long endTime = System.nanoTime();
+        System.out.printf("Elapsed search time of %s microseconds\n", (endTime-startTime)/1000);
+        System.out.printf("Similarity index is %s (lower is better)\n", mostSimilar.getIndex().Compare(testIndex));
+//        System.out.println(Arrays.toString(mostSimilar.getIndex().IndexComponents()));
     }
 }
