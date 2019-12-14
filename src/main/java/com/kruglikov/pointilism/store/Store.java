@@ -16,7 +16,7 @@ public interface Store {
 
     //Set the indexer for this store, once an image has been set using the set
     // indexer the indexer can no longer be changed
-    Bool setIndexer(Indexer indexer);
+    boolean setIndexer(Indexer indexer);
 
     // Returns the currently set indexer, if no indexer has been set returns null
     ImageIndex.IndexType currentIndexer();

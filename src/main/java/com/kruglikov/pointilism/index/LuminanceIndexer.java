@@ -38,4 +38,9 @@ public class LuminanceIndexer implements Indexer {
         }
         return null;
     }
+
+    @Override
+    public ImageIndex.IndexType type() {
+        return ImageIndex.IndexType.LUMINANCE;
+    }
 }

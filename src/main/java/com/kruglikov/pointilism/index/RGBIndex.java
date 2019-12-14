@@ -32,6 +32,12 @@ public class RGBIndex implements ImageIndex {
         return new float[]{rIndex,gIndex,bIndex};
     }
 
+    @Override
+    public boolean deepEquals(ImageIndex otherIndex) {
+        float[] otherComponents = otherIndex.IndexComponents();
+        return this.rIndex == otherComponents[0] && this.gIndex == otherComponents[1] && this.bIndex == otherComponents[2];
+    }
+
     private float sumOfSquaresComparison(RGBIndex thisIndex, RGBIndex thatIndex) {
         float rDiff = thisIndex.rIndex - thatIndex.rIndex;
         float gDiff = thisIndex.gIndex - thatIndex.gIndex;
@@ -45,8 +51,4 @@ public class RGBIndex implements ImageIndex {
         return IndexType.RGB;
     }
 
-    @Override
-    public int compareTo(ImageIndex imageIndex) {
-
-    }
 }

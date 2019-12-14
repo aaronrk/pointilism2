@@ -22,8 +22,8 @@ public class InefficientStore implements Store {
     }
 
     @Override
-    public Bool setIndexer(Indexer indexer) {
-        return null;
+    public boolean setIndexer(Indexer indexer) {
+        return false;
     }
 
     @Override

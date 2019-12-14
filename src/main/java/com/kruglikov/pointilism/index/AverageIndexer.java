@@ -23,6 +23,11 @@ public class AverageIndexer implements Indexer{
                 totalPixels ++;
             }
         }
-        return new RGBIndex(rIndex/totalPixels, gIndex/totalPixels, bIndex/totalPixels);
+        return new RGBIndex(Math.round(rIndex/totalPixels), Math.round(gIndex/totalPixels), Math.round(bIndex/totalPixels));
+    }
+
+    @Override
+    public ImageIndex.IndexType type() {
+        return ImageIndex.IndexType.RGB;
     }
 }
