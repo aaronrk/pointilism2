@@ -14,11 +14,14 @@ import java.util.Arrays;
 public class alternateMain {
 
     public static void main(String[] args) {
-//        System.out.println(calculateImageAverage("/Users/aaronkruglikov/Desktop/dog.jpg"));
-//        System.out.println(calculateImageAverage("/Users/aaronkruglikov/Desktop/redsquare.jpg"));
+        ImageIndex turtle1 = calculateImageAverage("/home/aaron/Desktop/turtle.jpg");
+        ImageIndex turtle2 = calculateImageAverage("/home/aaron/Desktop/turtle2.jpg");
+        System.out.println(calculateImageAverage("/home/aaron/Desktop/turtle.jpg"));
+        System.out.println(calculateImageAverage("/home/aaron/Desktop/turtle2.jpg"));
+        System.out.println(turtle1.Compare(turtle2));
     }
 
-    private static float calculateImageAverage(String pathToImage) {
+    private static ImageIndex calculateImageAverage(String pathToImage) {
         BufferedImage img = null;
 
         try {
@@ -36,6 +39,6 @@ public class alternateMain {
         }
         System.out.println(Arrays.toString(index.IndexComponents()));
 
-        return diffValue;
+        return index;
     }
 }

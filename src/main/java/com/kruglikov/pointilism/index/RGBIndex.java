@@ -19,7 +19,7 @@ public class RGBIndex implements ImageIndex {
     }
     @Override
     public float Compare(ImageIndex otherIndex) throws IllegalArgumentException {
-        if (!(otherIndex instanceof RGBIndex)) {
+        if (otherIndex.type() != type()) {
             throw new IllegalArgumentException(String.valueOf(new String[]{
                     "Provided image index is of incompatible type " +
                             otherIndex.getClass().getName()}));
@@ -38,5 +38,10 @@ public class RGBIndex implements ImageIndex {
         float bDiff = thisIndex.bIndex - thatIndex.bIndex;
 
         return rDiff * rDiff + gDiff * gDiff + bDiff * bDiff;
+    }
+
+    @Override
+    public IndexType type() {
+        return IndexType.RGB;
     }
 }
