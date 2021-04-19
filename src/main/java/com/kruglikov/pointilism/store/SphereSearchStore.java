@@ -36,7 +36,7 @@ public class SphereSearchStore implements Store {
         }
     });
 
-    private final Indexer indexer;
+    private Indexer indexer;
 
     public SphereSearchStore() {
         this.indexer = new AverageIndexer();
@@ -58,7 +58,7 @@ public class SphereSearchStore implements Store {
         float gHigh = indexElems[1];
         float bLow = indexElems[2];
         float bHigh = indexElems[2];
-        for (int delta = 0; delta < 255; delta ++) {
+        for (int delta = 0; delta < 255; delta++) {
             //for each entry check if the elements at the current boundary fall on or inside the sphere
             //TODO Potential alternative, once an element has appeared 3 times (once per index) it is guaranteed to be inside.
 
@@ -105,7 +105,7 @@ public class SphereSearchStore implements Store {
             }
             //adjust all indecies
             rLow = max(0, rLow - 1);
-            rHigh = min(255, rHigh + 1) ;
+            rHigh = min(255, rHigh + 1);
             gLow = max(0, gLow - 1);
             gHigh = min(255, gHigh + 1);
             bLow = max(0, bLow - 1);
@@ -142,7 +142,7 @@ public class SphereSearchStore implements Store {
         IndexedImage indexedImg = new RGBIndexedImage(image, key);
         if (rIndex.containsKey(key)) {
             List<IndexedImage> existingElems = rIndex.get(key);
-            //This only needs to be done for the first index any perfect duplicates
+            //This only needs to be done for the first index any c duplicates
             // will be found at this point
             for (IndexedImage elem : existingElems) {
                 if (elem.getIndex().deepEquals(key)) {
@@ -176,12 +176,16 @@ public class SphereSearchStore implements Store {
 
     @Override
     public boolean setIndexer(Indexer indexer) {
+        if (indexer.type() != this.indexer.type()) {
+            this.indexer = indexer;
+            return true;
+        }
         return false;
     }
 
     @Override
-    public ImageIndex.IndexType currentIndexer() {
-        return this.indexer.type();
+    public Indexer currentIndexer() {
+        return this.indexer;
     }
 }
 

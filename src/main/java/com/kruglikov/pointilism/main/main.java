@@ -47,7 +47,7 @@ public class main {
         long startTime = System.nanoTime();
         IndexedImage mostSimilar = store.returnMostSimilar(testIndex);
         long endTime = System.nanoTime();
-        System.out.printf("Elapsed search time of %s microseconds\n", (endTime-startTime)/1000);
+        System.out.printf("Elapsed search time of %s microseconds\n", (endTime - startTime) / 1000);
         System.out.printf("Similarity index is %s (lower is better)\n", mostSimilar.getIndex().Compare(testIndex));
 //        System.out.println(Arrays.toString(mostSimilar.getIndex().IndexComponents()));
     }

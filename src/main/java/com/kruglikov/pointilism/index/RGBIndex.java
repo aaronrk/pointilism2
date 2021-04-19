@@ -20,9 +20,9 @@ public class RGBIndex implements ImageIndex {
     @Override
     public float Compare(ImageIndex otherIndex) throws IllegalArgumentException {
         if (otherIndex.type() != type()) {
-            throw new IllegalArgumentException(String.valueOf(new String[]{
-                    "Provided image index is of incompatible type " +
-                            otherIndex.getClass().getName()}));
+            throw new IllegalArgumentException(String.format(
+                    "Provided image index is of incompatible type %s",
+                            otherIndex.getClass().getName()));
         }
         return sumOfSquaresComparison(this, (RGBIndex) otherIndex);
     }
