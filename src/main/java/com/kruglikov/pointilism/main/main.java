@@ -1,5 +1,6 @@
 package com.kruglikov.pointilism.main;
 
+import com.kruglikov.pointilism.compositer.SimpleCompositer;
 import com.kruglikov.pointilism.index.AverageIndexer;
 import com.kruglikov.pointilism.index.ImageIndex;
 import com.kruglikov.pointilism.index.Indexer;
@@ -23,6 +24,7 @@ public class main {
             for (File child : directoryListing) {
                 try {
                     img = ImageIO.read(child);
+                    System.out.println("Successfully indexed image.");
                     if (img != null) {
                         store.storeImage(img);
                     } else {
@@ -38,17 +40,30 @@ public class main {
         }
         ImageIndex testIndex;
         try {
-            img = ImageIO.read(new File("/Users/aaronkruglikov/Desktop/turts.jpg"));
+            img = ImageIO.read(new File("/Users/aaronkruglikov/Desktop/testingPicsPointilism/albert-dros-greenland-2.jpeg"));
             testIndex = indexer.Index(img);
+
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException("Could not find searchable file");
         }
-        long startTime = System.nanoTime();
-        IndexedImage mostSimilar = store.returnMostSimilar(testIndex);
-        long endTime = System.nanoTime();
-        System.out.printf("Elapsed search time of %s microseconds\n", (endTime - startTime) / 1000);
-        System.out.printf("Similarity index is %s (lower is better)\n", mostSimilar.getIndex().Compare(testIndex));
+//        long startTime = System.nanoTime();
+//        IndexedImage mostSimilar = store.returnMostSimilar(testIndex);
+//        long endTime = System.nanoTime();
+//        System.out.printf("Elapsed search time of %s microseconds\n", (endTime - startTime) / 1000);
+//        System.out.printf("Similarity index is %s (lower is better)\n", mostSimilar.getIndex().Compare(testIndex));
 //        System.out.println(Arrays.toString(mostSimilar.getIndex().IndexComponents()));
+        SimpleCompositer compositer = new SimpleCompositer(store);
+        BufferedImage outputImage = compositer.generateCompositeImageForImage(img, 12);
+        File outputFile = new File("/Users/aaronkruglikov/Desktop/testingPicsPointilism/output.jpg");
+        try {
+            ImageIO.write(outputImage,
+                          "jpg",
+                          outputFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

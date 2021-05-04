@@ -16,6 +16,7 @@ java_binary(
         "//src/main/java/com/kruglikov/pointilism/index",
         "//src/main/java/com/kruglikov/pointilism/store",
         "//src/main/java/com/kruglikov/pointilism/utils",
+        "//src/main/java/com/kruglikov/pointilism/compositer",
     ],
 )
 

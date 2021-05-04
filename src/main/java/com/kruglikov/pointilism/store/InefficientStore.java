@@ -2,7 +2,6 @@ package com.kruglikov.pointilism.store;
 
 import com.kruglikov.pointilism.index.ImageIndex;
 import com.kruglikov.pointilism.index.Indexer;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.awt.image.BufferedImage;
 import java.util.Set;
@@ -27,7 +26,7 @@ public class InefficientStore implements Store {
     }
 
     @Override
-    public ImageIndex.IndexType currentIndexer() {
+    public Indexer currentIndexer() {
         return null;
     }
 }
