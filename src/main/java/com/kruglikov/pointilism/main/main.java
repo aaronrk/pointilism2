@@ -18,7 +18,7 @@ public class main {
         Store store = new SphereSearchStore();
         Indexer indexer = new AverageIndexer();
         BufferedImage img = null;
-        File dir = new File("/Users/aaronkruglikov/Desktop/testingPicsPointilism");
+        File dir = new File("/*source photo file path here*/");
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {
             for (File child : directoryListing) {
@@ -40,7 +40,7 @@ public class main {
         }
         ImageIndex testIndex;
         try {
-            img = ImageIO.read(new File("/Users/aaronkruglikov/Desktop/testingPicsPointilism/albert-dros-greenland-2.jpeg"));
+            img = ImageIO.read(new File("/*target photo here*/"));
             testIndex = indexer.Index(img);
 
         } catch (IOException e) {
@@ -55,7 +55,7 @@ public class main {
 //        System.out.println(Arrays.toString(mostSimilar.getIndex().IndexComponents()));
         SimpleCompositer compositer = new SimpleCompositer(store);
         BufferedImage outputImage = compositer.generateCompositeImageForImage(img, 12);
-        File outputFile = new File("/Users/aaronkruglikov/Desktop/testingPicsPointilism/output.jpg");
+        File outputFile = new File("/* output file name here */");
         try {
             ImageIO.write(outputImage,
                           "jpg",
