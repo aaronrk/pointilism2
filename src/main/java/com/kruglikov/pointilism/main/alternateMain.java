@@ -14,10 +14,10 @@ import java.util.Arrays;
 public class alternateMain {
 
     public static void main(String[] args) {
-        ImageIndex turtle1 = calculateImageAverage("/home/aaron/Desktop/turtle.jpg");
-        ImageIndex turtle2 = calculateImageAverage("/home/aaron/Desktop/turtle2.jpg");
-        System.out.println(calculateImageAverage("/home/aaron/Desktop/turtle.jpg"));
-        System.out.println(calculateImageAverage("/home/aaron/Desktop/turtle2.jpg"));
+        ImageIndex turtle1 = calculateImageAverage("/*pathToPhoto*/");
+        ImageIndex turtle2 = calculateImageAverage("/*pathToPhoto*/");
+        System.out.println(calculateImageAverage("/*pathToPhoto*/"));
+        System.out.println(calculateImageAverage("/*pathToPhoto*/"));
         System.out.println(turtle1.Compare(turtle2));
     }
 
